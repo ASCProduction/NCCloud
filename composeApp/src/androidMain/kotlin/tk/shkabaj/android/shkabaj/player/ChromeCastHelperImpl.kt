@@ -80,19 +80,6 @@ class ChromeCastHelperImpl: ChromeCastHelper {
                 addImage(webImage)
             }
         }
-
-        val mediaInfo = MediaInfo.Builder(item.mediaUrl)
-            .setMetadata(mediaMetadata)
-            .setStreamType(MediaInfo.STREAM_TYPE_BUFFERED)
-            .build()
-
-        val mediaLoadRequestData = MediaLoadRequestData.Builder()
-            .setMediaInfo(mediaInfo)
-            .setAutoplay(startImmediately)
-            .build()
-
-        val castSession = castContext.sessionManager.currentCastSession
-        castSession?.remoteMediaClient?.load(mediaLoadRequestData)
     }
 
     override fun play() {

@@ -19,7 +19,6 @@ import tk.shkabaj.android.shkabaj.ui.toolbar.ToolbarManager
 import tk.shkabaj.android.shkabaj.ui.news.NewsScreen
 import tk.shkabaj.android.shkabaj.ui.settings.SettingsScreen
 import tk.shkabaj.android.shkabaj.utils.Platform
-import tk.shkabaj.android.shkabaj.utils.analytics.AnalyticsTracker
 
 data class MainUIState (
     val initialTab: TabItem,
@@ -86,12 +85,6 @@ class MainViewModel(
                 val tabsWithUpdates = viewState.tabsWithUpdates.toMutableList()
                 when (appScreen) {
                     is NewsScreen -> tabsWithUpdates.remove(TabItem.NEWS)
-                    else -> {}
-                }
-                when (appScreen) {
-                    is MainScreen -> AnalyticsTracker.trackBallinaScreen()
-                    is NewsBookmarksScreen -> AnalyticsTracker.trackNewsBookmarksScreen()
-                    is SettingsScreen -> AnalyticsTracker.trackSettingsScreen()
                     else -> {}
                 }
                 updateViewState { state ->

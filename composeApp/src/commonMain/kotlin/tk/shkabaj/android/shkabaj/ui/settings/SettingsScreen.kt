@@ -81,7 +81,6 @@ import tk.shkabaj.android.shkabaj.modules.settings.SettingsAction
 import tk.shkabaj.android.shkabaj.navigation.AppScreen
 import tk.shkabaj.android.shkabaj.navigation.AppScreenTitle
 import tk.shkabaj.android.shkabaj.ui.toolbar.ToolbarAction
-import tk.shkabaj.android.shkabaj.utils.analytics.AnalyticsTracker
 
 class SettingsScreen : AppScreen {
 
@@ -266,39 +265,32 @@ class SettingsScreen : AppScreen {
 
                     when (setting) {
                         is SettingEntity.ShareApp -> {
-                            AnalyticsTracker.trackSettingsShareAppEvent(title = setting.title)
                             viewModel.obtainEvent(event = SettingsEvent.ShareApp)
                         }
                         is SettingEntity.Mail -> {
-                            AnalyticsTracker.trackSettingsContactsEvent(title = setting.title)
                             viewModel.obtainEvent(event = SettingsEvent.SendEmail)
                         }
                         is SettingEntity.Twitter -> {
-                            AnalyticsTracker.trackSettingsContactsEvent(title = setting.title)
                             viewModel.obtainEvent(
                                 event = SettingsEvent.OnOpenUrl(Constants.TWITTER_URL)
                             )
                         }
                         is SettingEntity.Facebook -> {
-                            AnalyticsTracker.trackSettingsContactsEvent(title = setting.title)
                             viewModel.obtainEvent(
                                 event = SettingsEvent.OnOpenUrl(Constants.FACEBOOK_URL)
                             )
                         }
                         is SettingEntity.AboutUs -> {
-                            AnalyticsTracker.trackSettingsShkabajEvent(title = setting.title)
                             viewModel.obtainEvent(
                                 event = SettingsEvent.OnOpenUrl(Constants.SETTINGS_ABOUT_URL)
                             )
                         }
                         is SettingEntity.TermsOfUse -> {
-                            AnalyticsTracker.trackSettingsShkabajEvent(title = setting.title)
                             viewModel.obtainEvent(
                                 event = SettingsEvent.OnOpenUrl(Constants.SETTINGS_TOS_URL)
                             )
                         }
                         is SettingEntity.PrivacyPolicy -> {
-                            AnalyticsTracker.trackSettingsShkabajEvent(title = setting.title)
                             viewModel.obtainEvent(
                                 event = SettingsEvent.OnOpenUrl(Constants.SETTINGS_PRIVACY_URL)
                             )

@@ -154,8 +154,6 @@ actual class AudioPlayer: KoinComponent {
     private fun setMediaItems(items: List<PlayerItem>, startIndex: Int, play: Boolean) {
         val mediaItems = items.map { item ->
             MediaItem.Builder()
-                .setMediaId(item.mediaUrl)
-                .setUri(item.mediaUrl)
                 .setMediaMetadata(
                     MediaMetadata.Builder()
                         .setTitle(item.title ?: "")
@@ -165,7 +163,6 @@ actual class AudioPlayer: KoinComponent {
                         .setExtras(
                             bundleOf(
                                 KEY_SITE to item.site,
-                                KEY_SUBTITLE_2 to item.subtitle2,
                                 KEY_SUBTITLE_3 to item.subtitle3,
                                 KEY_LISTENING_INFO to item.listeningInfo,
                             )

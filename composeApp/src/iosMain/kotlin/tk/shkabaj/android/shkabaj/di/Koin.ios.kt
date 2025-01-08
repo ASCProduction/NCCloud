@@ -13,19 +13,16 @@ import tk.shkabaj.android.shkabaj.data.db.AppDatabase
 import tk.shkabaj.android.shkabaj.data.local.db.getAppDatabase
 import tk.shkabaj.android.shkabaj.player.ChromeCastHelper
 import tk.shkabaj.android.shkabaj.player.MPNowPlayingInfoArtworkLoader
-import tk.shkabaj.android.shkabaj.utils.analytics.PlatformAnalyticsTracker
 import tk.shkabaj.android.shkabaj.utils.IosPlatform
 import tk.shkabaj.android.shkabaj.utils.Platform
 import tk.shkabaj.android.shkabaj.utils.PlatformMigrationHelper
 
 fun initKoinIos(
-    analyticsTracker: PlatformAnalyticsTracker,
     artworkLoader: MPNowPlayingInfoArtworkLoader,
     nativeViewsProvider: NativeViewsProvider,
     chromeCastHelper: ChromeCastHelper
 ): KoinApplication {
     return initKoin(appModule = module {
-        single { analyticsTracker }
         single { artworkLoader }
         single { nativeViewsProvider }
         single(createdAtStart = true) { chromeCastHelper }

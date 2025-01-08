@@ -10,7 +10,6 @@ import tk.shkabaj.android.shkabaj.managers.bookmarks.NewsBookmarksManager
 import tk.shkabaj.android.shkabaj.network.entity.news.main.NewsEntity
 import tk.shkabaj.android.shkabaj.ui.news.model.NewsItemModel
 import tk.shkabaj.android.shkabaj.ui.toolbar.ToolbarAction
-import tk.shkabaj.android.shkabaj.utils.analytics.AnalyticsTracker
 import tk.shkabaj.android.shkabaj.utils.Platform
 
 data class NewsBookmarksState(
@@ -73,7 +72,6 @@ class NewsBookmarksViewModel(
         when (event) {
             is NewsBookmarksEvent.OnBookmarkClick -> deleteBookmark(event.newsEntity)
             is NewsBookmarksEvent.OnOpenUrl -> {
-                AnalyticsTracker.trackNewsBookmarksEvent(title = event.newsItem.title ?: "")
                 platform.openUrl(url = event.newsItem.articleUrl ?: "")
             }
             is NewsBookmarksEvent.OnToolbarEvent -> handleToolbarAction(toolbarAction = event.toolbarAction)

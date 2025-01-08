@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.App.SplashScreenStart" parent="Theme.SplashScreen">
+
+        <item name="android:windowBackground">@drawable/splashscreen_icon</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+
+    </style>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="mediaRouteButtonTint">#2B9CC9</item>
+    </style>
+
+</resources>

@@ -1,0 +1,297 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "c45f7efee356901a97477022d028679b",
+    "entities": [
+      {
+        "tableName": "news",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`title` TEXT NOT NULL, `articleUrl` TEXT NOT NULL, `description` TEXT NOT NULL, `sourceImageUrl` TEXT, `imageUrl` TEXT, `sourceName` TEXT, `timeUpdated` TEXT, `webTooltip` TEXT, `webUrl` TEXT, `photoTooltip` TEXT, `photoUrl` TEXT, `videoTooltip` TEXT, `videoUrl` TEXT, `bookmarkedDate` TEXT, PRIMARY KEY(`title`, `articleUrl`, `description`))",
+        "fields": [
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "articleUrl",
+            "columnName": "articleUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceImageUrl",
+            "columnName": "sourceImageUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "imageUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "sourceName",
+            "columnName": "sourceName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "timeUpdated",
+            "columnName": "timeUpdated",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "webTooltip",
+            "columnName": "webTooltip",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "webUrl",
+            "columnName": "webUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "photoTooltip",
+            "columnName": "photoTooltip",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "photoUrl",
+            "columnName": "photoUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "videoTooltip",
+            "columnName": "videoTooltip",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "videoUrl",
+            "columnName": "videoUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "bookmarkedDate",
+            "columnName": "bookmarkedDate",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "title",
+            "articleUrl",
+            "description"
+          ]
+        }
+      },
+      {
+        "tableName": "video",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`kind` TEXT NOT NULL, `id` TEXT NOT NULL, `bookmarkedDate` TEXT, `_videoSnippetDBEntitypublishedAt` TEXT NOT NULL, `_videoSnippetDBEntitychannelId` TEXT NOT NULL, `_videoSnippetDBEntitytitle` TEXT NOT NULL, `_videoSnippetDBEntitydescription` TEXT NOT NULL, `_videoSnippetDBEntitychannelTitle` TEXT NOT NULL, `_videoSnippetDBEntitytags` TEXT NOT NULL, `_videoSnippetDBEntitycategoryId` TEXT NOT NULL, `_videoSnippetDBEntityliveBroadcastContent` TEXT NOT NULL, `_videoSnippetDBEntitydefault_url` TEXT NOT NULL, `_videoSnippetDBEntitydefault_width` INTEGER NOT NULL, `_videoSnippetDBEntitydefault_height` INTEGER NOT NULL, `_videoSnippetDBEntitymedium_url` TEXT NOT NULL, `_videoSnippetDBEntitymedium_width` INTEGER NOT NULL, `_videoSnippetDBEntitymedium_height` INTEGER NOT NULL, `_videoSnippetDBEntityhigh_url` TEXT NOT NULL, `_videoSnippetDBEntityhigh_width` INTEGER NOT NULL, `_videoSnippetDBEntityhigh_height` INTEGER NOT NULL, `_videoSnippetDBEntity_localizedtitle` TEXT NOT NULL, `_videoSnippetDBEntity_localizeddescription` TEXT NOT NULL, `duration` TEXT NOT NULL, `dimension` TEXT NOT NULL, `definition` TEXT NOT NULL, `caption` TEXT NOT NULL, `licensedContent` INTEGER NOT NULL, `viewCount` TEXT NOT NULL, `likeCount` TEXT NOT NULL, `favoriteCount` TEXT NOT NULL, `commentCount` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "kind",
+            "columnName": "kind",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookmarkedDate",
+            "columnName": "bookmarkedDate",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "snippet.publishedAt",
+            "columnName": "_videoSnippetDBEntitypublishedAt",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.channelId",
+            "columnName": "_videoSnippetDBEntitychannelId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.title",
+            "columnName": "_videoSnippetDBEntitytitle",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.description",
+            "columnName": "_videoSnippetDBEntitydescription",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.channelTitle",
+            "columnName": "_videoSnippetDBEntitychannelTitle",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.tags",
+            "columnName": "_videoSnippetDBEntitytags",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.categoryId",
+            "columnName": "_videoSnippetDBEntitycategoryId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.liveBroadcastContent",
+            "columnName": "_videoSnippetDBEntityliveBroadcastContent",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.thumbnails.default.url",
+            "columnName": "_videoSnippetDBEntitydefault_url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.thumbnails.default.width",
+            "columnName": "_videoSnippetDBEntitydefault_width",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.thumbnails.default.height",
+            "columnName": "_videoSnippetDBEntitydefault_height",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.thumbnails.medium.url",
+            "columnName": "_videoSnippetDBEntitymedium_url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.thumbnails.medium.width",
+            "columnName": "_videoSnippetDBEntitymedium_width",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.thumbnails.medium.height",
+            "columnName": "_videoSnippetDBEntitymedium_height",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.thumbnails.high.url",
+            "columnName": "_videoSnippetDBEntityhigh_url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.thumbnails.high.width",
+            "columnName": "_videoSnippetDBEntityhigh_width",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.thumbnails.high.height",
+            "columnName": "_videoSnippetDBEntityhigh_height",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.localized.title",
+            "columnName": "_videoSnippetDBEntity_localizedtitle",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snippet.localized.description",
+            "columnName": "_videoSnippetDBEntity_localizeddescription",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contentDetails.duration",
+            "columnName": "duration",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contentDetails.dimension",
+            "columnName": "dimension",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contentDetails.definition",
+            "columnName": "definition",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contentDetails.caption",
+            "columnName": "caption",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contentDetails.licensedContent",
+            "columnName": "licensedContent",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "statistics.viewCount",
+            "columnName": "viewCount",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "statistics.likeCount",
+            "columnName": "likeCount",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "statistics.favoriteCount",
+            "columnName": "favoriteCount",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "statistics.commentCount",
+            "columnName": "commentCount",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c45f7efee356901a97477022d028679b')"
+    ]
+  }
+}

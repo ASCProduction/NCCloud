@@ -1,0 +1,122 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "f928908cf33b661594930d1c256c0630",
+    "entities": [
+      {
+        "tableName": "news",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`title` TEXT NOT NULL, `articleUrl` TEXT NOT NULL, `description` TEXT NOT NULL, `sourceImageUrl` TEXT, `imageUrl` TEXT, `sourceName` TEXT, `timeUpdated` TEXT, `webTooltip` TEXT, `webUrl` TEXT, `photoTooltip` TEXT, `photoUrl` TEXT, `videoTooltip` TEXT, `videoUrl` TEXT, `bookmarkedDate` REAL, PRIMARY KEY(`articleUrl`))",
+        "fields": [
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "articleUrl",
+            "columnName": "articleUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceImageUrl",
+            "columnName": "sourceImageUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "imageUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "sourceName",
+            "columnName": "sourceName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "timeUpdated",
+            "columnName": "timeUpdated",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "webTooltip",
+            "columnName": "webTooltip",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "webUrl",
+            "columnName": "webUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "photoTooltip",
+            "columnName": "photoTooltip",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "photoUrl",
+            "columnName": "photoUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "videoTooltip",
+            "columnName": "videoTooltip",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "videoUrl",
+            "columnName": "videoUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "bookmarkedDate",
+            "columnName": "bookmarkedDate",
+            "affinity": "REAL"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "articleUrl"
+          ]
+        }
+      },
+      {
+        "tableName": "updateInfo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`updateType` TEXT NOT NULL, `updateInfoJson` TEXT NOT NULL, PRIMARY KEY(`updateType`))",
+        "fields": [
+          {
+            "fieldPath": "updateType",
+            "columnName": "updateType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updateInfoJson",
+            "columnName": "updateInfoJson",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "updateType"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f928908cf33b661594930d1c256c0630')"
+    ]
+  }
+}

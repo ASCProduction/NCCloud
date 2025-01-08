@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#f2f2f2</color>
+    <color name="widget_background">#FFFFFF</color>
+    <color name="widget_text_color">#08232D</color>
+    <color name="widget_progress_color">#2B9CC9</color>
+
+    <color name="darkToolbarColor">#000000</color>
+    <color name="darkSecondaryColor">#FFFFFF</color>
+    <color name="lightToolbarColor">#FFFFFF</color>
+    <color name="lightSecondaryColor">#000000</color>
+</resources>

@@ -1,0 +1,51 @@
+# Uncomment the next line to define a global platform for your project
+ios_deployment_target = '14.0'
+
+platform :ios, ios_deployment_target
+use_frameworks!
+
+$firebaseVersion = '11.5.0'
+
+def onesignal_pods
+  pod 'OneSignal', '5.2.8'
+end
+
+target 'shkabaj-kmm-ios' do
+  onesignal_pods
+  pod 'composeApp', :path => '../composeApp/'
+  pod 'FirebaseCore', $firebaseVersion
+  pod 'FirebaseCrashlytics', $firebaseVersion
+  pod 'FirebaseAnalytics', $firebaseVersion
+  pod 'Kingfisher', '8.1.1'
+  pod 'google-cast-sdk', '4.8.3'
+end
+
+target 'ShkabajNewsWidgetExtension' do
+  pod 'XMLDictionary', '~> 1.4.1'
+end
+
+target 'OneSignalNotificationServiceExtension' do
+  onesignal_pods
+end
+
+post_install do |installer|
+  
+  installer.pods_project.targets.each do |target|
+    if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
+      target.build_configurations.each do |config|
+        config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+      end
+    end
+  end
+  
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+      target.build_configurations.each do |config|
+        if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < ios_deployment_target.to_f
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = ios_deployment_target
+        end
+      end
+    end
+  end
+  
+end

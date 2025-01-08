@@ -1,0 +1,9 @@
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="270dp"
+    android:maxWidth="270dp"
+    android:minHeight="180dp"
+    android:minResizeHeight="120dp"
+    android:updatePeriodMillis="300000"
+    android:widgetCategory="home_screen"
+    android:resizeMode="horizontal|vertical"> <!-- 1000 * 60 * 5 = 300 000 (5 minutes) -->
+</appwidget-provider>

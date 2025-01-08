@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1055949610967",
+    "firebase_url": "https://shkabaj-app-e472f.firebaseio.com",
+    "project_id": "shkabaj-app-e472f",
+    "storage_bucket": "shkabaj-app-e472f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055949610967:android:9c5700a405ab34bd",
+        "android_client_info": {
+          "package_name": "tk.shkabaj.android.shkabaj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055949610967-a430hg4qigv4lo65c5qpp9kqhl50aek8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU7lySL5KzS3se1A0GLfw8O1NayKr13yg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055949610967-a430hg4qigv4lo65c5qpp9kqhl50aek8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1055949610967-41ff47cjgmfiu8lavjupebc3o7eclegn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tk.shkabaj.shkabaj",
+                "app_store_id": "449642102"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

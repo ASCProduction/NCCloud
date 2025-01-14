@@ -37,14 +37,6 @@ class NCCloudApiService(
         return XmlParser.parseNews(response).newsList
     }
 
-    suspend fun listenRadio(id: Int) {
-        val params = mapOf(
-            "radio_id" to id.toString(),
-            "api_key" to NetworkConfig.RADIO_LISTEN_API_KEY
-        )
-        appNetworkClient.submitForm<Unit>(NetworkConfig.LISTEN_RADIO_PATH, params)
-    }
-
     suspend fun getCrypto(): List<CryptoInfo> {
         val getUrlCrypto = urlForGetCryptoInfo()
         return commonNetworkClient.getCryptoRequest<List<CryptoInfo>>(

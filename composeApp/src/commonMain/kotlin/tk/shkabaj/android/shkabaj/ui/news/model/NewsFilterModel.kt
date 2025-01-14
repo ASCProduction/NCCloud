@@ -6,7 +6,7 @@ enum class NewsFilterModel {
 
     val title: String
         get() = when(this) {
-            DEFAULT -> "E parazgjedhur"
-            DATE_FILTER -> "Sipas perditesimit te fundit"
+            DEFAULT -> "Default filter"
+            DATE_FILTER -> "According to the latest news"
         }
 }

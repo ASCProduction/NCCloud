@@ -4,7 +4,7 @@ import tk.shkabaj.android.shkabaj.network.entity.crypto.CryptoInfo
 import tk.shkabaj.android.shkabaj.ui.toolbar.ToolbarAction
 
 data class CryptoUIEvent (
-    val list: List<CryptoInfo> = emptyList(), //TODO: Crypto list
+    val list: List<CryptoInfo> = emptyList(),
     val progress: Boolean = false
 )
 

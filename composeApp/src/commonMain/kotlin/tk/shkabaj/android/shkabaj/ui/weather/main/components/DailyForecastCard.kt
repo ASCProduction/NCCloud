@@ -34,11 +34,8 @@ import nccloud.composeapp.generated.resources.StringPercentSuffix
 import nccloud.composeapp.generated.resources.StringTemperatureSuffix
 import nccloud.composeapp.generated.resources.ic_weather_rainy_20
 import tk.shkabaj.android.shkabaj.extensions.CenteredNonTrim
-import tk.shkabaj.android.shkabaj.extensions.replaceDays
-import tk.shkabaj.android.shkabaj.extensions.replaceMonths
 import tk.shkabaj.android.shkabaj.network.entity.weather.WeatherForecast
 import tk.shkabaj.android.shkabaj.network.entity.weather.WeatherHourlyForecast
-import tk.shkabaj.android.shkabaj.ui.theme.DividerColorColor
 import tk.shkabaj.android.shkabaj.ui.theme.DividerNewsColor
 import tk.shkabaj.android.shkabaj.ui.theme.LightCobaltBlueColor
 import tk.shkabaj.android.shkabaj.ui.theme.TextWhiteColor
@@ -54,7 +51,7 @@ fun DailyForecastCard(forecast: WeatherForecast) {
             .padding(12.dp)
     ) {
         Text(
-            text = forecast.weekDayString.replaceDays().replaceMonths(),
+            text = forecast.weekDayString,
             style = Typography.headlineSmall.copy(
                 color = TextWhiteColor,
                 lineHeightStyle = LineHeightStyle.CenteredNonTrim

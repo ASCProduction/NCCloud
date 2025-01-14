@@ -17,8 +17,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import tk.shkabaj.android.shkabaj.extensions.replaceDays
-import tk.shkabaj.android.shkabaj.extensions.replaceMonths
 import tk.shkabaj.android.shkabaj.network.entity.weather.WeatherForecast
 import tk.shkabaj.android.shkabaj.ui.theme.MaastrichtBlueColor
 import tk.shkabaj.android.shkabaj.ui.theme.SFProText
@@ -68,7 +66,7 @@ private fun DateItem(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Text(
-            text = forecast.wd?.replaceDays()?.replaceMonths() ?: "",
+            text = forecast.wd ?: "",
             color = MaastrichtBlueColor,
             fontSize =  15.sp,
             fontFamily = SFProText

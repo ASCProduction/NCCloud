@@ -12,12 +12,9 @@ import tk.shkabaj.android.shkabaj.managers.SearchBarManager
 import tk.shkabaj.android.shkabaj.managers.SettingsManager
 import tk.shkabaj.android.shkabaj.managers.UpdatesManager
 import tk.shkabaj.android.shkabaj.navigation.tabs.TabItem
-import tk.shkabaj.android.shkabaj.notifications.NavigationHelper
-import tk.shkabaj.android.shkabaj.ui.main.MainScreen
-import tk.shkabaj.android.shkabaj.ui.news.NewsBookmarksScreen
+import tk.shkabaj.android.shkabaj.navigation.NavigationHelper
 import tk.shkabaj.android.shkabaj.ui.toolbar.ToolbarManager
 import tk.shkabaj.android.shkabaj.ui.news.NewsScreen
-import tk.shkabaj.android.shkabaj.ui.settings.SettingsScreen
 import tk.shkabaj.android.shkabaj.utils.Platform
 
 data class MainUIState (

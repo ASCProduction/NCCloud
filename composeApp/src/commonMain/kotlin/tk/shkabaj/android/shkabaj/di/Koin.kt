@@ -28,10 +28,7 @@ import tk.shkabaj.android.shkabaj.ui.toolbar.ToolbarManager
 import tk.shkabaj.android.shkabaj.modules.weather.WeatherViewModel
 import tk.shkabaj.android.shkabaj.network.NetworkClient
 import tk.shkabaj.android.shkabaj.network.NCCloudApiService
-import tk.shkabaj.android.shkabaj.notifications.NavigationHelper
-import tk.shkabaj.android.shkabaj.notifications.NotificationClickHandler
-import tk.shkabaj.android.shkabaj.player.AudioPlayer
-import tk.shkabaj.android.shkabaj.player.NowPlayingManager
+import tk.shkabaj.android.shkabaj.navigation.NavigationHelper
 
 fun initKoin(appDeclaration: KoinAppDeclaration? = null,
              appModule: Module? = null): KoinApplication {
@@ -54,9 +51,6 @@ val networkModule = module {
 
 val mainModule = module {
     single { NavigationHelper() }
-    single { NotificationClickHandler(get()) }
-    single { AudioPlayer() }
-    single { NowPlayingManager(get(), get(), get()) }
     single { NewsBookmarksManager(get()) }
     singleOf(::CountriesManager)
     singleOf(::SettingsManager)

@@ -5,13 +5,7 @@ import com.russhwolf.settings.Settings
 enum class PreferencesKey(val value: String) {
     WEATHER_COUNTRY(value = "weather_country"),
     START_TAB(value = "start_tab"),
-    APP_THEME(value = "app_theme"),
-
-    IS_GDPR_APPLICABLE(value = "is_gdpr_applicable"),
-    CONSENT_STRING(value = "consent_string"),
-    GDPR_PRESENT_COUNT(value = "gdpr_present_count"),
-
-    IS_MIGRATED_TO_V7(value = "is_migrated_to_v7")
+    APP_THEME(value = "app_theme")
 }
 
 expect class AppPreferencesFactory {

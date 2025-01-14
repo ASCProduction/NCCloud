@@ -36,8 +36,6 @@ import nccloud.composeapp.generated.resources.StringTemperatureSuffix
 import nccloud.composeapp.generated.resources.WeaklyWeatherTitle
 import nccloud.composeapp.generated.resources.ic_baseline_more_vert_24
 import tk.shkabaj.android.shkabaj.extensions.CenteredNonTrim
-import tk.shkabaj.android.shkabaj.extensions.replaceDays
-import tk.shkabaj.android.shkabaj.extensions.replaceMonths
 import tk.shkabaj.android.shkabaj.network.entity.weather.WeatherForecast
 import tk.shkabaj.android.shkabaj.ui.theme.BarMaximumColor
 import tk.shkabaj.android.shkabaj.ui.theme.BarMinimumColor
@@ -126,7 +124,7 @@ private fun WeeklyForecastItem(forecast: WeatherForecast, onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = forecast.weekday?.replaceDays()?.replaceMonths() ?: "",
+            text = forecast.weekday ?: "",
             style = Typography.headlineSmall.copy(
                 color = TextWhiteColor,
                 lineHeightStyle = LineHeightStyle.CenteredNonTrim

@@ -5,7 +5,6 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.RoomDatabaseConstructor
 import androidx.room.TypeConverters
-import tk.shkabaj.android.shkabaj.data.converters.TagsConverter
 import tk.shkabaj.android.shkabaj.data.entity.NewsDatabaseEntity
 import tk.shkabaj.android.shkabaj.data.entity.UpdateDatabaseEntity
 
@@ -16,7 +15,6 @@ import tk.shkabaj.android.shkabaj.data.entity.UpdateDatabaseEntity
     version = 1
 )
 @ConstructedBy(AppDatabaseConstructor::class)
-@TypeConverters(TagsConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getNewsDao(): NewsDao
     abstract fun getUpdatesDao(): UpdateDao

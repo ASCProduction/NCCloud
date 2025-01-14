@@ -21,9 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
 import nccloud.composeapp.generated.resources.Res
-import nccloud.composeapp.generated.resources.ic_toolbar_logo
 import nccloud.composeapp.generated.resources.ic_back_navigation
-import tk.shkabaj.android.shkabaj.ui.customcomponents.CustomAnimationPlaying
 import tk.shkabaj.android.shkabaj.ui.theme.CulturedGreyColor
 import tk.shkabaj.android.shkabaj.ui.theme.MaastrichtBlueColor
 import tk.shkabaj.android.shkabaj.ui.theme.MainBGColor
@@ -31,8 +29,6 @@ import tk.shkabaj.android.shkabaj.ui.theme.SettingsIconColor
 import tk.shkabaj.android.shkabaj.ui.theme.ToolbarIconColor
 import tk.shkabaj.android.shkabaj.navigation.AppScreen
 import tk.shkabaj.android.shkabaj.navigation.ToolbarActionHelper
-import tk.shkabaj.android.shkabaj.player.AudioPlayerState
-import tk.shkabaj.android.shkabaj.player.NowPlayingState
 import tk.shkabaj.android.shkabaj.ui.crypto.CryptoScreen
 import tk.shkabaj.android.shkabaj.ui.main.MainScreen
 import tk.shkabaj.android.shkabaj.ui.news.NewsScreen
@@ -43,8 +39,6 @@ import tk.shkabaj.android.shkabaj.utils.Constants
 @Composable
 fun ToolbarLayout(toolbarManager: ToolbarManager) {
     val screen by toolbarManager.currentScreen.collectAsState()
-    val isShowingFilterNews by toolbarManager.showNewsFilter.collectAsState()
-    val nowPlayingState by toolbarManager.nowPlayingState.collectAsState()
 
     val isRoot = when(screen) {
         is MainScreen, is NewsScreen, is CryptoScreen, is WeatherScreen  -> true
@@ -52,14 +46,14 @@ fun ToolbarLayout(toolbarManager: ToolbarManager) {
     }
 
     if (isRoot) {
-        RootToolbarLayout(screen = screen, isAudioPlaying = nowPlayingState.playerState != AudioPlayerState.STOP, isShowingFilterNews = isShowingFilterNews)
+        RootToolbarLayout(screen = screen)
     } else {
         ChildToolbarTest(screen = screen)
     }
 }
 
 @Composable
-private fun RootToolbarLayout(screen: AppScreen?, isAudioPlaying: Boolean, isShowingFilterNews: Boolean) {
+private fun RootToolbarLayout(screen: AppScreen?) {
     Box(modifier = Modifier.height(height = Constants.TOOLBAR_HEIGHT.dp).fillMaxWidth()) {
         Row(
             modifier = Modifier.height(height = Constants.TOOLBAR_HEIGHT.dp - 1.dp).fillMaxWidth()
@@ -68,38 +62,15 @@ private fun RootToolbarLayout(screen: AppScreen?, isAudioPlaying: Boolean, isSho
             Spacer(
                 modifier = Modifier.weight(weight = 1f)
             )
-            if (isAudioPlaying) {
-                CustomAnimationPlaying(
-                    modifier = Modifier.align(alignment = Alignment.CenterVertically)
-                ) {
-                    ToolbarActionHelper.sendToolbarAction(action = ToolbarAction.PLAYER)
-                }
-            }
             screen?.toolbarActions?.forEach { toolbarAction ->
-                when(toolbarAction) {
-                    ToolbarAction.FILTER -> {
-                        if (isShowingFilterNews) {
-                            Image(
-                                painter = painterResource(resource = toolbarAction.icon),
-                                contentDescription = null,
-                                modifier = Modifier.padding(end = 16.dp)
-                                    .align(alignment = Alignment.CenterVertically)
-                                    .clickable { ToolbarActionHelper.sendToolbarAction(toolbarAction) },
-                                colorFilter = ColorFilter.tint(ToolbarIconColor)
-                            )
-                        }
-                    }
-                    else -> {
-                        Image(
-                            painter = painterResource(resource = toolbarAction.icon),
-                            contentDescription = null,
-                            modifier = Modifier.padding(end = 16.dp)
-                                .align(alignment = Alignment.CenterVertically)
-                                .clickable { ToolbarActionHelper.sendToolbarAction(toolbarAction) },
-                            colorFilter = ColorFilter.tint(ToolbarIconColor)
-                        )
-                    }
-                }
+                Image(
+                    painter = painterResource(resource = toolbarAction.icon),
+                    contentDescription = null,
+                    modifier = Modifier.padding(end = 16.dp)
+                        .align(alignment = Alignment.CenterVertically)
+                        .clickable { ToolbarActionHelper.sendToolbarAction(toolbarAction) },
+                    colorFilter = ColorFilter.tint(ToolbarIconColor)
+                )
             }
         }
         Text(

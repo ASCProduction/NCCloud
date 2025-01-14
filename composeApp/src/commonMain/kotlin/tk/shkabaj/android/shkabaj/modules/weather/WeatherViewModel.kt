@@ -12,7 +12,7 @@ import tk.shkabaj.android.shkabaj.network.entity.weather.WeatherCountry
 import tk.shkabaj.android.shkabaj.network.entity.weather.WeatherForecastInfo
 import tk.shkabaj.android.shkabaj.network.entity.weather.toEntity
 import tk.shkabaj.android.shkabaj.network.entity.weather.toUiModel
-import tk.shkabaj.android.shkabaj.notifications.NavigationHelper
+import tk.shkabaj.android.shkabaj.navigation.NavigationHelper
 import tk.shkabaj.android.shkabaj.ui.toolbar.ToolbarAction
 
 sealed interface WeatherEvent {

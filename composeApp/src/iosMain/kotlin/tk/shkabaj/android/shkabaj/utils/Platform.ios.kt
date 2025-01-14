@@ -35,36 +35,10 @@ internal class IosPlatform : Platform {
         return NSBundle.mainBundle.infoDictionary?.get("CFBundleShortVersionString") as? String ?: "Unknown"
     }
 
-    override fun sendSupportEmail() {
-        if (MFMailComposeViewController.canSendMail().not()) return
-        val subject = "Shkabaj App ${getAppVersion()} – iOS"
-        val recipient = Constants.SHARE_EMAIL_ADDRESS
-
-        val mailVC = MFMailComposeViewController()
-        mailVC.mailComposeDelegate = mfDelegate
-        mailVC.setSubject(subject)
-        mailVC.setToRecipients(listOf(recipient))
-        getRootViewController().presentViewController(mailVC, animated = true, completion = null)
-    }
-
-    override fun shareApp() {
-        shareContent(
-            defaultText = "Shkarkoni aplikacionin Shkabaj për iPhone dhe iPad falas në App Store ose përmes: ${Constants.SHARE_APP_LINK}",
-            emailHtmlText = "<html>Më pëlqeu ky aplikacion nga Shkabaj për iPhone dhe iPad dhe mendova se ju do të pëlqeni gjithashtu! Shkarkoni këtë aplikacion falas në <a href=\"${Constants.APP_STORE_LINK}\">App Store</a> ose përmes ${Constants.SHARE_APP_LINK}>"
-        )
-    }
-
     override fun shareNews(newsTitle: String) {
         shareContent(
-            defaultText = "Po i shikoj lajmet \"$newsTitle\" në aplikacionin Shkabaj për iPhone dhe iPad! Shkarkoni këtë aplikacion falas në App Store ose përmes: ${Constants.SHARE_APP_LINK}",
-            emailHtmlText = "<html>Po i shikoj lajmet \"$newsTitle\" në aplikacionin Shkabaj për iPhone dhe iPad! Shkarkoni këtë aplikacion falas në <a href=\"${Constants.APP_STORE_LINK}\">App Store</a> ose përmes ${Constants.SHARE_APP_LINK}>"
-        )
-    }
-
-    override fun shareRadio(radioName: String) {
-        shareContent(
-            defaultText = "Jam duke dëgjuar $radioName në aplikacionin Shkabaj për iPhone dhe iPad! Shkarkoni këtë aplikacion falas në App Store ose përmes: ${Constants.SHARE_APP_LINK}",
-            emailHtmlText = "<html>Jam duke dëgjuar $radioName në aplikacionin Shkabaj për iPhone dhe iPad! Shkarkoni këtë aplikacion falas në <a href=\"${Constants.APP_STORE_LINK}\">App Store</a> ose përmes ${Constants.SHARE_APP_LINK}>"
+            defaultText = "Check out the news: \"$newsTitle\" - ",
+            emailHtmlText = "<html>Check out the news: \"$newsTitle\" -<a href=\"\">App Store</a>>"
         )
     }
 

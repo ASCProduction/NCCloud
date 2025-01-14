@@ -73,7 +73,6 @@ import tk.shkabaj.android.shkabaj.ui.theme.RadioPlayerActionColor
 import tk.shkabaj.android.shkabaj.ui.theme.TitleBlueColor
 import tk.shkabaj.android.shkabaj.ui.theme.Typography
 import tk.shkabaj.android.shkabaj.ui.theme.WhiteColor
-import tk.shkabaj.android.shkabaj.utils.Constants
 import tk.shkabaj.android.shkabaj.utils.DateTimeUtils
 import tk.shkabaj.android.shkabaj.utils.Platform
 import tk.shkabaj.android.shkabaj.managers.ThemeManager
@@ -94,7 +93,6 @@ class SettingsScreen : AppScreen {
         val viewModel = injectScreenModel<SettingsViewModel>()
         val navigator = LocalNavigator.currentOrThrow
         val platform: Platform = koinInject()
-        viewModel.obtainEvent(event = SettingsEvent.OnCheckAvailableCountries)
         val state by viewModel.viewStates().collectAsState()
         val snackBarHostState = remember { SnackbarHostState() }
         val snackBarMessage = stringResource(Res.string.CacheRemovedMsg)
@@ -259,44 +257,8 @@ class SettingsScreen : AppScreen {
                         is SettingEntity.Theme -> SettingsThemeDialog {
                             viewModel.obtainEvent(event = SettingsEvent.OnDefaultThemeChanged)
                         }
-                        else -> null
                     }
                     dialog?.let(bottomSheetNavigator::show)
-
-                    when (setting) {
-                        is SettingEntity.ShareApp -> {
-                            viewModel.obtainEvent(event = SettingsEvent.ShareApp)
-                        }
-                        is SettingEntity.Mail -> {
-                            viewModel.obtainEvent(event = SettingsEvent.SendEmail)
-                        }
-                        is SettingEntity.Twitter -> {
-                            viewModel.obtainEvent(
-                                event = SettingsEvent.OnOpenUrl(Constants.TWITTER_URL)
-                            )
-                        }
-                        is SettingEntity.Facebook -> {
-                            viewModel.obtainEvent(
-                                event = SettingsEvent.OnOpenUrl(Constants.FACEBOOK_URL)
-                            )
-                        }
-                        is SettingEntity.AboutUs -> {
-                            viewModel.obtainEvent(
-                                event = SettingsEvent.OnOpenUrl(Constants.SETTINGS_ABOUT_URL)
-                            )
-                        }
-                        is SettingEntity.TermsOfUse -> {
-                            viewModel.obtainEvent(
-                                event = SettingsEvent.OnOpenUrl(Constants.SETTINGS_TOS_URL)
-                            )
-                        }
-                        is SettingEntity.PrivacyPolicy -> {
-                            viewModel.obtainEvent(
-                                event = SettingsEvent.OnOpenUrl(Constants.SETTINGS_PRIVACY_URL)
-                            )
-                        }
-                        else -> Unit
-                    }
                 }
                 .padding(start = 12.dp, end = 8.dp),
             verticalAlignment = Alignment.CenterVertically,

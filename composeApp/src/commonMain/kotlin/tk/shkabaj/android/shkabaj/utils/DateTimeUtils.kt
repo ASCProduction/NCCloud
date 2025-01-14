@@ -9,6 +9,15 @@ import kotlinx.datetime.toLocalDateTime
 
 object DateTimeUtils {
 
+    private val months = listOf(
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    )
+    private val daysOfWeek = listOf(
+        "Mon", "Tue", "Wen", "Thu",
+        "Fri", "Sat", "Sun"
+    )
+
     val currentTimestamp: Double
         get() = nowInstant.epochSeconds.toDouble()
     private val nowInstant: Instant
@@ -18,11 +27,10 @@ object DateTimeUtils {
 
     fun getCurrentYear(): Int = now.year
 
-    fun dateStringFromInstant(instant: Instant): String? {
+    private fun dateStringFromInstant(instant: Instant): String? {
         try {
             val date = instant.toLocalDateTime(TimeZone.currentSystemDefault()).date
-            val albanianMonths = listOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-            val monthShortName = albanianMonths[date.monthNumber - 1]
+            val monthShortName = months[date.monthNumber - 1]
             return "${date.dayOfMonth} $monthShortName ${date.year}"
         } catch (e: Exception) {
             return null
@@ -41,16 +49,8 @@ object DateTimeUtils {
         val (month, day) = dt.split("/").map { it.toInt() }
         val currentYear = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).year
         val date = LocalDate(currentYear, month, day)
-        val albanianDaysOfWeek = listOf(
-            "Mon", "Tue", "Wen", "Thu",
-            "Fri", "Sat", "Sun"
-        )
-        val albanianMonths = listOf(
-            "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-        )
-        val dayOfWeek = albanianDaysOfWeek[date.dayOfWeek.ordinal]
-        val monthName = albanianMonths[date.monthNumber - 1]
+        val dayOfWeek = daysOfWeek[date.dayOfWeek.ordinal]
+        val monthName = months[date.monthNumber - 1]
         return "$dayOfWeek, ${date.dayOfMonth} $monthName"
     }
 

@@ -11,28 +11,23 @@ import org.koin.dsl.module
 import tk.shkabaj.android.shkabaj.NativeViewsProvider
 import tk.shkabaj.android.shkabaj.data.db.AppDatabase
 import tk.shkabaj.android.shkabaj.data.local.db.getAppDatabase
-import tk.shkabaj.android.shkabaj.player.ChromeCastHelper
 import tk.shkabaj.android.shkabaj.player.MPNowPlayingInfoArtworkLoader
 import tk.shkabaj.android.shkabaj.utils.IosPlatform
 import tk.shkabaj.android.shkabaj.utils.Platform
-import tk.shkabaj.android.shkabaj.utils.PlatformMigrationHelper
 
 fun initKoinIos(
     artworkLoader: MPNowPlayingInfoArtworkLoader,
-    nativeViewsProvider: NativeViewsProvider,
-    chromeCastHelper: ChromeCastHelper
+    nativeViewsProvider: NativeViewsProvider
 ): KoinApplication {
     return initKoin(appModule = module {
         single { artworkLoader }
         single { nativeViewsProvider }
-        single(createdAtStart = true) { chromeCastHelper }
     })
 }
 
 actual val platformModule = module {
     single<Platform> { IosPlatform() }
     single<AppDatabase> { getAppDatabase() }
-    single<PlatformMigrationHelper> { PlatformMigrationHelper() }
 }
 
 @OptIn(BetaInteropApi::class)

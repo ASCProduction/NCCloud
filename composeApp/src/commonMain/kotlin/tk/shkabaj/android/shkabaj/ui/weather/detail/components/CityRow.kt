@@ -14,8 +14,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import tk.shkabaj.android.shkabaj.extensions.CenteredNonTrim
 import tk.shkabaj.android.shkabaj.ui.theme.MaastrichtBlueColor
-import tk.shkabaj.android.shkabaj.extensions.replaceDays
-import tk.shkabaj.android.shkabaj.extensions.replaceMonths
 import tk.shkabaj.android.shkabaj.ui.theme.SFProText
 import tk.shkabaj.android.shkabaj.ui.theme.TextSecondBlueColor
 import tk.shkabaj.android.shkabaj.ui.theme.Typography
@@ -38,7 +36,7 @@ fun CityRow(city: String, date: String) {
         Spacer(modifier = Modifier.weight(1f))
 
         Text(
-            text = date.replaceDays().replaceMonths(),
+            text = date,
             color = MaastrichtBlueColor,
             fontSize =  15.sp,
             fontFamily = SFProText

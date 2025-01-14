@@ -3,7 +3,7 @@ package tk.shkabaj.android.shkabaj.modules.news
 import cafe.adriel.voyager.core.model.screenModelScope
 import kotlinx.coroutines.launch
 import tk.shkabaj.android.shkabaj.base.BaseViewModel
-import tk.shkabaj.android.shkabaj.notifications.NavigationHelper
+import tk.shkabaj.android.shkabaj.navigation.NavigationHelper
 import tk.shkabaj.android.shkabaj.ui.toolbar.ToolbarAction
 
 data class NewsParentUIModel(
@@ -35,7 +35,7 @@ class NewsParentViewModel(
         screenModelScope.launch {
             navigationHelper.state.collect { event ->
                 when(event) {
-                    is NavigationHelper.Action.OpenLajmeTab -> {
+                    is NavigationHelper.Action.OpenNewsTab -> {
                         screenModelScope.launch {
                             sendViewAction(action = NewsParentAction.SwitchTab(event.tabIndex))
                         }

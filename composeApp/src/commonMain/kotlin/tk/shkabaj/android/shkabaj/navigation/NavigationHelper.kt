@@ -1,4 +1,4 @@
-package tk.shkabaj.android.shkabaj.notifications
+package tk.shkabaj.android.shkabaj.navigation
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -9,10 +9,8 @@ import tk.shkabaj.android.shkabaj.navigation.tabs.TabItem
 class NavigationHelper {
 
     sealed class Action {
-        data class OpenLajmeTab(val tabIndex: Int): Action()
+        data class OpenNewsTab(val tabIndex: Int): Action()
         data class OpenWeatherTab(val tabIndex: Int): Action()
-        data class OpenRadio(val name: String): Action()
-        data class OpenTV(val name: String): Action()
         data class OpenTab(val tab: TabItem): Action()
         data class OpenLink(val link: String, val insideApp: Boolean): Action()
         data class ShowPushDialog(val title: String, val handler: () -> Unit): Action()
@@ -25,9 +23,9 @@ class NavigationHelper {
         _state.update { Action.ShowPushDialog(title, handler) }
     }
 
-    fun openLajme(tabIndex: Int) {
+    fun openNews(tabIndex: Int) {
         openTab(TabItem.NEWS)
-        _state.update { Action.OpenLajmeTab(tabIndex) }
+        _state.update { Action.OpenNewsTab(tabIndex) }
     }
 
     fun openWeather(tabIndex: Int) {
@@ -35,22 +33,8 @@ class NavigationHelper {
         _state.update { Action.OpenWeatherTab(tabIndex) }
     }
 
-    fun openRadio(name: String) {
-        openTab(TabItem.HOME)
-        _state.update { Action.OpenRadio(name) }
-    }
-
-    fun openTV(name: String) {
-        openTab(TabItem.HOME)
-        _state.update { Action.OpenTV(name) }
-    }
-
     fun openTab(tab: TabItem) {
         _state.update { Action.OpenTab(tab) }
-    }
-
-    fun openLink(link: String, insideApp: Boolean) {
-        _state.update { Action.OpenLink(link, insideApp) }
     }
 
 }

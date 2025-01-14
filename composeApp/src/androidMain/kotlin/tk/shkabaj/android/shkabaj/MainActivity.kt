@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
@@ -13,14 +12,8 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.FragmentActivity
-import org.koin.android.ext.android.inject
-import tk.shkabaj.android.shkabaj.notification.OneSignalNotificationService
-import tk.shkabaj.android.shkabaj.player.NowPlayingManager
 
 class MainActivity : FragmentActivity() {
-
-    private val nowPlayingManager by inject<NowPlayingManager>()
-    private val notification by inject<OneSignalNotificationService>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,17 +41,14 @@ class MainActivity : FragmentActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        nowPlayingManager.cleanUp()
     }
 
     override fun onPause() {
         super.onPause()
-        notification.changeStateActivity(false)
     }
 
     override fun onResume() {
         super.onResume()
-        notification.changeStateActivity(true)
     }
 
 }

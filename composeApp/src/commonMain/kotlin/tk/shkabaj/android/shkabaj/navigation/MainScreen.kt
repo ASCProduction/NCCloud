@@ -40,7 +40,6 @@ import tk.shkabaj.android.shkabaj.navigation.tabs.CryptoTab
 import tk.shkabaj.android.shkabaj.navigation.tabs.HomeTab
 import tk.shkabaj.android.shkabaj.navigation.tabs.NewsTab
 import tk.shkabaj.android.shkabaj.navigation.tabs.WeatherTab
-import tk.shkabaj.android.shkabaj.notifications.NavigationHelper
 import tk.shkabaj.android.shkabaj.ui.customcomponents.showSnackBar
 import tk.shkabaj.android.shkabaj.ui.theme.AccentColor
 import tk.shkabaj.android.shkabaj.ui.theme.OpacityBGColor
